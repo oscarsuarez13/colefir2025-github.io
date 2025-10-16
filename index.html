@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE Luis Enrique Figueroa Rey - Piedecuesta</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Superior */
+        .top-bar {
+            background: linear-gradient(135deg, #1a5490 0%, #00bcd4 100%);
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Header Principal */
+        .main-header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: auto;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text h1 {
+            font-size: 28px;
+            color: #1a5490;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background: linear-gradient(135deg, #1a5490 0%, #00bcd4 100%);
+            color: white;
+        }
+
+        /* Banner Hero */
+        .hero {
+            background: linear-gradient(135deg, rgba(26, 84, 144, 0.95), rgba(0, 188, 212, 0.85)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%2300bcd4" width="1200" height="400"/><path fill="%231a5490" opacity="0.3" d="M0,200 Q300,100 600,200 T1200,200 L1200,400 L0,400 Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #ffd600;
+            color: #1a237e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .btn-primary:hover {
+            background: #ffed4e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 214, 0, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Secciones */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #1a5490;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #ffd600;
+        }
+
+        /* Cards de Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a5490 0%, #00bcd4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+        }
+
+        .service-card h3 {
+            color: #1a5490;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Sección Noticias */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #1a5490 0%, #00bcd4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-date {
+            color: #00bcd4;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .news-card h3 {
+            color: #1a5490;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .news-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #00bcd4;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .read-more:hover {
+            color: #1a5490;
+        }
+
+        /* Estadísticas */
+        .stats {
+            background: linear-gradient(135deg, #1a5490 0%, #00bcd4 100%);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffd600;
+        }
+
+        .stat-item p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Galería */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: linear-gradient(135deg, #1a5490 0%, #00bcd4 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #ffd600;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #ffd600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #ffd600;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+
+        /* Tabla de Atención */
+        .schedule-table {
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .schedule-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .schedule-table thead {
+            background: linear-gradient(135deg, #1a5490 0%, #00bcd4 100%);
+            color: white;
+        }
+
+        .schedule-table thead th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .schedule-table tbody tr {
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.3s;
+        }
+
+        .schedule-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .schedule-table tbody td {
+            padding: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .schedule-table tbody td:first-child {
+            font-weight: 600;
+            color: #1a5490;
+        }
+
+        .schedule-section {
+            margin-bottom: 40px;
+        }
+
+        .schedule-section h3 {
+            color: #1a5490;
+            font-size: 22px;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 4px solid #00bcd4;
+        }
+
+        /* Visor de PDF */
+        .pdf-viewer-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .pdf-viewer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .document-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .document-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .document-info {
+            flex: 1;
+        }
+
+        .document-info h3 {
+            color: #1a5490;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .document-info p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-document {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-view {
+            background: linear-gradient(135deg, #1a5490 0%, #00bcd4 100%);
+            color: white;
+        }
+
+        .btn-view:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 84, 144, 0.3);
+        }
+
+        .btn-download {
+            background: #ffd600;
+            color: #1a5490;
+        }
+
+        .btn-download:hover {
+            background: #ffed4e;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .pdf-viewer {
+                height: 400px;
+            }
+
+            .document-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .document-actions {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .btn-document {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+            .schedule-table {
+                overflow-x: auto;
+            }
+
+            .schedule-table table {
+                min-width: 600px;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav ul li a {
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+        /* Animaciones al scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra Superior -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span>📧 secretaria@colefirpiedecuesta.edu.co</span>
+               
+                <span>📱 320 309 149200000000000000000</span>
+                <span>📍 Calle 17 #2w-97 Sector Barro Blanco, Piedecuesta, Santander</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="ESCUDO.png" alt="IE Luis Enrique Figueroa Rey" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 200 240%27%3E%3Cpath d=%27M100 10 L180 40 L180 120 Q180 200 100 230 Q20 200 20 120 L20 40 Z%27 fill=%27white%27 stroke=%27%231a5490%27 stroke-width=%274%27/%3E%3Crect x=%2730%27 y=%2750%27 width=%27140%27 height=%275%27 fill=%27%23ffd700%27/%3E%3Crect x=%2730%27 y=%27165%27 width=%27140%27 height=%275%27 fill=%27%23ffd700%27/%3E%3Crect x=%2740%27 y=%2760%27 width=%2760%27 height=%2750%27 fill=%27%23ffd700%27/%3E%3Ctext x=%2770%27 y=%2795%27 font-size=%2730%27 fill=%27white%27%3E✋%3C/text%3E%3Crect x=%27100%27 y=%2760%27 width=%2760%27 height=%2750%27 fill=%27%2700bcd4%27/%3E%3Ctext x=%27125%27 y=%2795%27 font-size=%2728%27 fill=%27white%27%3E✏️%3C/text%3E%3Crect x=%2740%27 y=%27110%27 width=%2760%27 height=%2750%27 fill=%27%231a237e%27/%3E%3Ctext x=%2765%27 y=%27145%27 font-size=%2728%27 fill=%27%23ff69b4%27%3E💙%3C/text%3E%3Crect x=%27100%27 y=%27110%27 width=%2760%27 height=%2750%27 fill=%27%23ffd700%27/%3E%3Ctext x=%27120%27 y=%27145%27 font-size=%2728%27 fill=%27white%27%3E💭%3C/text%3E%3Ctext x=%27100%27 y=%27190%27 font-size=%2712%27 text-anchor=%27middle%27 fill=%27%23666%27 font-weight=%27bold%27%3EInstitución Educativa%3C/text%3E%3Ctext x=%27100%27 y=%27205%27 font-size=%2714%27 text-anchor=%27middle%27 fill=%27%231a237e%27 font-weight=%27bold%27%3EL.E.F.R.%3C/text%3E%3C/svg%3E'">
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#atencion-docente">Atención Docente</a></li>
+                    <li><a href="#documentos">Documentos</a></li>
+                    <li><a href="#noticias">Noticias</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Institución Educativa Luis Enrique Figueroa Rey</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 20px;
+      color: #003366;
+    }
+
+    /* Contenedor del carrusel */
+    .slider {
+      position: relative;
+      width: 100%;
+      max-width: 55000px;
+      height: 450px;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Imágenes */
+    .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 1s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    /* Botones de navegación */
+    .slider-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .slider-buttons button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .slider-buttons button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Texto sobre las imágenes */
+    .slide-text {
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+    }
+
+    /* Responsividad */
+    @media (max-width: 600px) {
+      .slider {
+        width: 90%;
+        height: 200px;
+      }
+      .slide-text {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Institución Educativa Luis Enrique Figueroa Rey</h1>
+
+  <div class="slider">
+    <div class="slides">
+  
+    <img src="1.jpg" alt="Imagen 1" />
+   <img src="2.jpg" alt="Imagen 2" />
+   <img src="3.jpg" alt="Imagen 3" />
+ <img src="4.jpg" alt="Imagen 4" />
+ <img src="5.jpg" alt="Imagen 5" />
+ <img src="6.jpg" alt="Imagen 6" />
+ <img src="7.jpg" alt="Imagen 7" />
+ <img src="8.jpg" alt="Imagen 8" />
+    </div>
+    <div class="slider-buttons">
+      <button id="prev">&#10094;</button>
+      <button id="next">&#10095;</button>
+    </div>
+    <div class="slide-text" id="slideText">Bienvenidos a nuestra Institución</div>
+  </div>
+
+  <script>
+    const slides = document.querySelector('.slides');
+    const images = document.querySelectorAll('.slides img');
+    const slideText = document.getElementById('slideText');
+    const texts = [
+      'Bienvenidos a nuestra Institución',
+      'Formación integral con valores',
+      'Compromiso con la excelencia educativa'
+    ];
+
+    let index = 0;
+
+    function showSlide(i) {
+      slides.style.transform = `translateX(${-i * 100}%)`;
+      slideText.textContent = texts[i];
+    }
+
+    document.getElementById('next').addEventListener('click', () => {
+      index = (index + 1) % images.length;
+      showSlide(index);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      index = (index - 1 + images.length) % images.length;
+      showSlide(index);
+    });
+
+    // Desplazamiento automático cada 4 segundos
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      showSlide(index);
+    }, 5000);
+  </script>
+</body>
+</html>
+
+    <!-- Estadísticas -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>2023</h3>
+                <p>Año de Fundación</p>
+            </div>
+            <div class="stat-item">
+                <h3>135+</h3>
+                <p>Años de Experiencia Dominicas</p>
+            </div>
+            <div class="stat-item">
+                <h3>2025</h3>
+                <p>Meta Jornada Única</p>
+            </div>
+            <div class="stat-item">
+                <h3>90%</h3>
+                <p>Compromiso</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="section fade-in" style="background: #f5f5f5;">
+        <h2 class="section-title">Horizonte Institucional</h2>
+        <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <div style="background: white; padding: 35px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <h3 style="color: #1a5490; font-size: 26px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <svg width="50" height="50" viewBox="0 0 100 100" style="flex-shrink: 0;">
+                        <!-- Círculos concéntricos -->
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="#00bcd4" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="#00bcd4" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="15" fill="none" stroke="#00bcd4" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="5" fill="#00bcd4"/>
+                        <!-- Líneas horizontales y verticales -->
+                        <line x1="5" y1="50" x2="25" y2="50" stroke="#00bcd4" stroke-width="3"/>
+                        <line x1="75" y1="50" x2="95" y2="50" stroke="#00bcd4" stroke-width="3"/>
+                        <line x1="50" y1="5" x2="50" y2="25" stroke="#00bcd4" stroke-width="3"/>
+                        <line x1="50" y1="75" x2="50" y2="95" stroke="#00bcd4" stroke-width="3"/>
+                        <!-- Flecha -->
+                        <path d="M 70 30 L 85 15 L 90 20 L 75 35 Z" fill="#00bcd4"/>
+                        <line x1="50" y1="50" x2="85" y2="15" stroke="#00bcd4" stroke-width="3"/>
+                    </svg>
+                    Misión
+                </h3>
+                <p style="font-size: 15px; line-height: 1.8; color: #666; text-align: justify;">
+                    La Institución Educativa Luis Enrique Figueroa Rey, del municipio de Piedecuesta, es una institución 
+                    pública y oficial que ofrece educación integral y humanizadora desde el preescolar hasta el grado once 
+                    de la media académica. Asume en su propuesta de formación humana integral modelos de escolaridad 
+                    flexible que contribuyen a dar respuesta a las necesidades de retención, permanencia, continuidad y 
+                    cualificación de los procesos formativos. Propende por la defensa, cuidado de la vida y respeto de los 
+                    derechos humanos de los integrantes de la comunidad educativa, sus familias y demás ciudadanos según 
+                    los fundamentos de la Democracia Social de Derecho.
+                </p>
+            </div>
+            <div style="background: white; padding: 35px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <h3 style="color: #1a5490; font-size: 26px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                    <svg width="50" height="50" viewBox="0 0 100 100" style="flex-shrink: 0;">
+                        <!-- Marco del escáner -->
+                        <path d="M 20 15 L 20 35 M 20 15 L 40 15" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round" fill="none"/>
+                        <path d="M 80 15 L 80 35 M 80 15 L 60 15" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round" fill="none"/>
+                        <path d="M 20 85 L 20 65 M 20 85 L 40 85" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round" fill="none"/>
+                        <path d="M 80 85 L 80 65 M 80 85 L 60 85" stroke="#ff6b9d" stroke-width="4" stroke-linecap="round" fill="none"/>
+                        <!-- Ojo -->
+                        <ellipse cx="50" cy="50" rx="22" ry="18" fill="none" stroke="#ff6b9d" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="10" fill="none" stroke="#ff6b9d" stroke-width="3"/>
+                        <circle cx="50" cy="50" r="5" fill="#ff6b9d"/>
+                        <!-- Lupa -->
+                        <circle cx="65" cy="40" r="8" fill="none" stroke="#ff6b9d" stroke-width="2.5"/>
+                        <line x1="71" y1="46" x2="77" y2="52" stroke="#ff6b9d" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                    Visión
+                </h3>
+                <p style="font-size: 15px; line-height: 1.8; color: #666; text-align: justify;">
+                    La Institución Educativa Luis Enrique Figueroa Rey para el 2025 y a largo plazo (2030) espera 
+                    consolidarse como oferta educativa oficial en jornada única; fortalecer la propuesta curricular con 
+                    énfasis en capacidades y competencias bilingües, programación, y emprendimiento basado en administración 
+                    de microempresas, de modo que se propicie la empleabilidad de los egresados, con el fin de que se mejore 
+                    la economía familiar y el avance educativo profesional. Además, se pretende contribuir en la formación 
+                    de los padres de familia en temas fundamentales del proceso de crianza de los aprendices.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section id="nosotros" class="section fade-in">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div style="max-width: 900px; margin: 0 auto;">
+            <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-bottom: 30px;">
+                <h3 style="color: #1a5490; font-size: 24px; margin-bottom: 20px;">Reseña Histórica</h3>
+                <p style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 15px;">
+                    El día 23 del mes de enero año 2023, en el sur de Piedecuesta, sector Barro Blanco, abrió sus puertas 
+                    la Institución Educativa Luis Enrique Figueroa Rey, cuyo nombre surgió en honor al ilustre escritor y 
+                    destacado periodista del municipio.
+                </p>
+                <p style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 15px;">
+                    Esta iniciativa fue liderada por el alcalde del municipio, el doctor Mario José Carvajal Jaimes, y por la 
+                    Comunidad de Hermanas Dominicas de la Presentación, en convenio con la Secretaría de Educación.
+                </p>
+                <p style="font-size: 16px; line-height: 1.8; color: #666;">
+                    La administración fue encomendada a la comunidad religiosa de las Hermanas Dominicas de la Presentación, 
+                    quienes, gracias a su amplia experiencia de más de ciento treinta y cinco años al frente de procesos educativos, 
+                    han demostrado estar plenamente calificadas para dirigir esta institución oficial, respaldada por el sector privado 
+                    para garantizar la calidad de sus procesos educativos.
+                </p>
+            </div>
+
+            <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                <h3 style="color: #1a5490; font-size: 24px; margin-bottom: 20px;">Filosofía Institucional</h3>
+                <p style="font-size: 16px; line-height: 1.8; color: #666; margin-bottom: 15px;">
+                    La Institución Educativa Luis Enrique Figueroa Rey forja a jóvenes con un profundo conocimiento en arte, 
+                    cultura y sabiduría. El espíritu humanista de la Institución se refleja en su compromiso por alcanzar el 
+                    bienestar tanto individual como colectivo de toda la comunidad educativa y su entorno.
+                </p>
+                <p style="font-size: 16px; line-height: 1.8; color: #666;">
+                    De acuerdo con el Horizonte Institucional, la filosofía adopta un enfoque marcadamente humanista, en el cual 
+                    sus principales objetivos son la inclusión y la convivencia dentro del proceso educativo continuo de los educandos. 
+                    La educación se percibe como una necesidad fundamental para la construcción de la ciudadanía, la igualdad, la paz 
+                    y el bienestar social.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="section fade-in" style="background: #f5f5f5;">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📚</div>
+                <h3>Educación Preescolar a Grado 11</h3>
+                <p>Educación integral desde preescolar hasta media académica con modelos de escolaridad flexible.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Inclusión Educativa</h3>
+                <p>Institución incluyente que garantiza los derechos de todos los niños, niñas y adolescentes.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Programación y Tecnología</h3>
+                <p>Énfasis en competencias tecnológicas, programación y desarrollo de habilidades digitales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌍</div>
+                <h3>Bilingüismo</h3>
+                <p>Fortalecimiento de capacidades y competencias bilingües para un mundo globalizado.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>Emprendimiento</h3>
+                <p>Administración de microempresas y empleabilidad para mejorar la economía familiar.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👨‍👩‍👧</div>
+                <h3>Escuela de Padres</h3>
+                <p>Formación de padres y acudientes en pautas de crianza y acompañamiento educativo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atención Docente -->
+    <section id="atencion-docente" class="section fade-in">
+        <h2 class="section-title">Horarios de Atención a Padres de Familia</h2>
+        <p style="text-align: center; color: #666; font-size: 16px; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            A continuación encontrará los horarios de atención personalizada de cada docente y personal administrativo. 
+            
+        </p>
+
+        <!-- Preescolar y Primaria -->
+        <div class="schedule-section">
+            <h3>📚 Preescolar y Básica Primaria</h3>
+            <div class="schedule-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Docente</th>
+                            <th>Grado</th>
+                            <th>Día</th>
+                            <th>Horario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HERNÁNDEZ GUIRAL YOLANDA PAOLA</td>
+                            <td>Transición-A</td>
+                            <td>Martes</td>
+                            <td>2:00 PM - 2:30 PM</td>
+                        </tr>
+                        <tr>
+                            <td>SILVA ARENAS LUISA FERNANDA</td>
+                            <td>Transición-B</td>
+                            <td>Viernes</td>
+                            <td>11:00 AM - 11:30 AM</td>
+                        </tr>
+                        <tr>
+                            <td>BAUTISTA JAIMES SILVIA JULIANA</td>
+                            <td>1A</td>
+                            <td>Martes</td>
+                            <td>9:20 AM - 9:50 AM</td>
+                        </tr>
+                        <tr>
+                            <td>FUENTES NÚÑEZ NANCY</td>
+                            <td>1B</td>
+                            <td>Martes</td>
+                            <td>9:20 AM - 9:50 AM</td>
+                        </tr>
+                        <tr>
+                            <td>QUIÑONEZ DELGADO BLEIDY LINEY</td>
+                            <td>2A</td>
+                            <td>Martes</td>
+                            <td>9:00 AM - 9:30 AM</td>
+                        </tr>
+                        <tr>
+                            <td>TARAZONA YERLI JOHANA</td>
+                            <td>2B</td>
+                            <td>Martes</td>
+                            <td>9:00 AM - 9:30 AM</td>
+                        </tr>
+                        <tr>
+                            <td>ARCINIEGAS HERNÁNDEZ JESSICA JAZMIN</td>
+                            <td>3A</td>
+                            <td>Jueves</td>
+                            <td>8:20 AM - 8:50 AM</td>
+                        </tr>
+                        <tr>
+                            <td>SOTO ARCHILA DIANA MILENA</td>
+                            <td>3B</td>
+                            <td>Jueves</td>
+                            <td>8:20 AM - 8:50 AM</td>
+                        </tr>
+                        <tr>
+                            <td>HUACA VARGAS DIANA</td>
+                            <td>4A</td>
+                            <td>Miércoles</td>
+                            <td>8:20 AM - 8:50 AM</td>
+                        </tr>
+                        <tr>
+                            <td>LOZANO VELANDIA ERIKA JOHANA</td>
+                            <td>4B</td>
+                            <td>Martes</td>
+                            <td>9:00 AM - 10:00 AM</td>
+                        </tr>
+                        <tr>
+                            <td>CALDERÓN ROA KAREN KATHERINE</td>
+                            <td>4C</td>
+                            <td>Martes</td>
+                            <td>9:00 AM - 9:30 AM</td>
+                        </tr>
+                        <tr>
+                            <td>SANDOVAL AMAYA ERIKA FERNANDA</td>
+                            <td>5A</td>
+                            <td>Jueves</td>
+                            <td>9:10 AM - 9:40 AM</td>
+                        </tr>
+                        <tr>
+                            <td>JAIMES LEÓN KAREN JURLEY</td>
+                            <td>5B</td>
+                            <td>Jueves</td>
+                            <td>9:10 AM - 9:40 AM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Básica Secundaria -->
+        <div class="schedule-section">
+            <h3>🎓 Básica Secundaria</h3>
+            <div class="schedule-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Docente</th>
+                            <th>Grado</th>
+                            <th>Día</th>
+                            <th>Horario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CÁCERES DELGADO KELTY YOLIMA</td>
+                            <td>6A</td>
+                            <td>Lunes</td>
+                            <td>7:25 AM - 8:20 AM</td>
+                        </tr>
+                        <tr>
+                            <td>DURÁN GONZÁLEZ VIDA PATRICIA</td>
+                            <td>6B</td>
+                            <td>Lunes</td>
+                            <td>6:30 AM - 7:25 AM</td>
+                        </tr>
+                        <tr>
+                            <td>GUERRERO CARVAJAL DIANA PATRICIA</td>
+                            <td>6C</td>
+                            <td>Miércoles</td>
+                            <td>8:20 AM - 9:15 AM</td>
+                        </tr>
+                        <tr>
+                            <td>CARRILLO MÉNDEZ CARMEN ROCÍO</td>
+                            <td>7A</td>
+                            <td>Lunes</td>
+                            <td>10:40 AM - 11:35 AM</td>
+                        </tr>
+                        <tr>
+                            <td>MECÓN GARCÍA BEATRIZ PAOLA</td>
+                            <td>7B</td>
+                            <td>Lunes</td>
+                            <td>9:45 AM - 10:40 AM</td>
+                        </tr>
+                        <tr>
+                            <td>SEQUEDA DUARTE CARMEN ROSA</td>
+                            <td>7C</td>
+                            <td>Jueves</td>
+                            <td>9:45 AM - 10:40 AM</td>
+                        </tr>
+                        <tr>
+                            <td>GARZÓN LÓPEZ MARLON LEONARDO</td>
+                            <td>7D</td>
+                            <td>Viernes</td>
+                            <td>6:30 AM - 7:25 AM</td>
+                        </tr>
+                        <tr>
+                            <td>DÍAZ URREA JULIO CÉSAR</td>
+                            <td>8A</td>
+                            <td>Jueves</td>
+                            <td>11:35 AM - 12:30 PM</td>
+                        </tr>
+                        <tr>
+                            <td>PINEDA ARDILA VANESSA DAYANA</td>
+                            <td>8B</td>
+                            <td>Jueves</td>
+                            <td>9:45 AM - 10:40 AM</td>
+                        </tr>
+                        <tr>
+                            <td>CARREÑO ALMEYDA SNEYDER YUSSEP</td>
+                            <td>8C</td>
+                            <td>Miércoles</td>
+                            <td>9:45 AM - 10:40 AM</td>
+                        </tr>
+                        <tr>
+                            <td>JURADO PIMIENTO LEDY JOHANA</td>
+                            <td>9A</td>
+                            <td>Miércoles</td>
+                            <td>11:30 AM - 12:30 PM</td>
+                        </tr>
+                        <tr>
+                            <td>JIMÉNEZ SERRANO JULIETH VANESSA</td>
+                            <td>9B</td>
+                            <td>Miércoles</td>
+                            <td>7:25 AM - 8:20 AM</td>
+                        </tr>
+                        <tr>
+                            <td>MENDOZA BAUTISTA MARYOLI LICETH</td>
+                            <td>9C</td>
+                            <td>Miércoles</td>
+                            <td>10:40 AM - 11:35 AM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Media -->
+        <div class="schedule-section">
+            <h3>🎯 Educación Media</h3>
+            <div class="schedule-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Docente</th>
+                            <th>Grado</th>
+                            <th>Día</th>
+                            <th>Horario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>JEREZ MEDINA MANUEL FERNANDO</td>
+                            <td>10A</td>
+                            <td>Miércoles</td>
+                            <td>11:30 AM - 12:30 PM</td>
+                        </tr>
+                        <tr>
+                            <td>BOHÓRQUEZ PRIETO MAURICIO ANDRÉS</td>
+                            <td>10B</td>
+                            <td>Lunes</td>
+                            <td>11:30 AM - 12:30 PM</td>
+                        </tr>
+                        <tr>
+                            <td>CASTELLANOS BOHÓRQUEZ LUZ ELVIRA</td>
+                            <td>11</td>
+                            <td>Miércoles</td>
+                            <td>9:45 AM - 10:40 AM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Docentes de Área -->
+        <div class="schedule-section">
+            <h3>👥 Docentes de Área</h3>
+            <div class="schedule-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Docente</th>
+                            <th>Grado</th>
+                            <th>Día</th>
+                            <th>Horario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HERRERA BUSTOS LORENA DEL PILAR</td>
+                            <td>6°</td>
+                            <td>Lunes</td>
+                            <td>6:30 AM - 7:25 AM</td>
+                        </tr>
+                        <tr>
+                            <td>TORRES ROBERTO JUAN CARLOS</td>
+                            <td>7°</td>
+                            <td>Viernes</td>
+                            <td>6:30 AM - 7:25 AM</td>
+                        </tr>
+                        <tr>
+                            <td>CARVAJAL SILVESTRE NICOLÁS</td>
+                            <td>8°</td>
+                            <td>Lunes</td>
+                            <td>6:30 AM - 7:25 AM</td>
+                        </tr>
+                        <tr>
+                            <td>JURADO GUERRA MARLON ANDRÉS</td>
+                            <td>9°</td>
+                            <td>Lunes</td>
+                            <td>6:30 AM - 7:25 AM</td>
+                        </tr>
+                        <tr>
+                            <td>DAZA CARVAJAL KEVIN ANDRÉS</td>
+                            <td>10° y 11°</td>
+                            <td>Martes</td>
+                            <td>11:35 AM - 12:30 PM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Personal Administrativo y Apoyo -->
+        <div class="schedule-section">
+            <h3>🏛️ Personal Administrativo y Apoyo</h3>
+            <div class="schedule-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Cargo</th>
+                            <th>Día</th>
+                            <th>Horario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OSCAR HERNANDO SUÁREZ MEDINA</td>
+                            <td>Coordinación Académica</td>
+                            <td>Jueves</td>
+                            <td>2:00 PM - 4:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>SANDRA SUGEY GARCÍA AMOROCHO</td>
+                            <td>Coordinación de Convivencia</td>
+                            <td>Miércoles</td>
+                            <td>2:00 PM - 4:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>HNA. MERCEDES ASCENCIO CALDERÓN</td>
+                            <td>Coordinación Pastoral</td>
+                            <td>Martes</td>
+                            <td>2:00 PM - 4:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>CLAUDIA VIVIANA LEÓN SANTOS</td>
+                            <td>Psicóloga Primaria</td>
+                            <td>Martes</td>
+                            <td>3:00 PM - 4:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>ANA MARÍA FAJARDO MANOSALVA</td>
+                            <td>Psicóloga Secundaria</td>
+                            <td>Lunes</td>
+                            <td>6:30 AM - 9:00 AM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; border-radius: 10px; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p style="color: #856404; margin: 0; font-size: 15px; line-height: 1.6;">
+                <strong>📌 Nota Importante:</strong> Los horarios de atención están sujetos a cambios. 
+                Para confirmar disponibilidad, por favor comuníquese previamente con la institución.
+            </p>
+        </div>
+    </section>
+
+    <!-- Documentos Institucionales -->
+    <section id="documentos" class="section fade-in" style="background: #f5f5f5;">
+        <h2 class="section-title">Documentos Institucionales</h2>
+        <p style="text-align: center; color: #666; font-size: 16px; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            Accede a los documentos oficiales de nuestra institución. Puedes visualizarlos directamente o descargarlos para consultarlos más tarde.
+        </p>
+
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <!-- Lista de Documentos -->
+            <div class="document-card">
+                <div class="document-info">
+                    <h3>📋 Manual de Convivencia 2025</h3>
+                    <p><strong>Descripción:</strong> Manual de Convivencia Escolar - Reglamento y normas de convivencia, derechos, deberes y procedimientos disciplinarios</p>
+                    <p><strong>Contenido:</strong> Identidad Institucional, Gobierno Escolar, Ruta de Atención Integral, Protocolos Situaciones Tipo I, II y III</p>
+                    <p><strong>Tamaño:</strong> 90 páginas | <strong>Última actualización:</strong> Acuerdo 002 de Agosto 15, 2025</p>
+                </div>
+                <div class="document-actions">
+                    <button class="btn-document btn-view" onclick="viewPDF('manual-convivencia')">
+                        👁️ Ver
+                    </button>
+                    <a href="documentos/manual-convivencia-2025.pdf" class="btn-document btn-download" download>
+                        ⬇️ Descargar
+                    </a>
+                </div>
+            </div>
+
+            <div class="document-card">
+                <div class="document-info">
+                    <h3>📚 Proyecto Educativo Institucional (PEI)</h3>
+                    <p><strong>Descripción:</strong> Documento rector de la institución educativa</p>
+                    <p><strong>Tamaño:</strong> 3.8 MB | <strong>Última actualización:</strong> Febrero 2025</p>
+                </div>
+                <div class="document-actions">
+                    <button class="btn-document btn-view" onclick="viewPDF('pei')">
+                        👁️ Ver
+                    </button>
+                    <a href="#" class="btn-document btn-download" download>
+                        ⬇️ Descargar
+                    </a>
+                </div>
+            </div>
+
+            <div class="document-card">
+                <div class="document-info">
+                    <h3>📅 Calendario Académico 2025</h3>
+                    <p><strong>Descripción:</strong> Programación de actividades académicas del año</p>
+                    <p><strong>Tamaño:</strong> 850 KB | <strong>Última actualización:</strong> Enero 2025</p>
+                </div>
+                <div class="document-actions">
+                    <button class="btn-document btn-view" onclick="viewPDF('calendario')">
+                        👁️ Ver
+                    </button>
+                    <a href="#" class="btn-document btn-download" download>
+                        ⬇️ Descargar
+                    </a>
+                </div>
+            </div>
+
+            <div class="document-card">
+                <div class="document-info">
+                    <h3>📝 Sistema Institucional de Evaluación (SIE)</h3>
+                    <p><strong>Descripción:</strong> Criterios y procedimientos de evaluación</p>
+                    <p><strong>Tamaño:</strong> 1.2 MB | <strong>Última actualización:</strong> Enero 2025</p>
+                </div>
+                <div class="document-actions">
+                    <button class="btn-document btn-view" onclick="viewPDF('sie')">
+                        👁️ Ver
+                    </button>
+                    <a href="#" class="btn-document btn-download" download>
+                        ⬇️ Descargar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visor de PDF -->
+            <div id="pdf-viewer-section" class="pdf-viewer-container" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h3 id="pdf-title" style="color: #1a5490; font-size: 22px; margin: 0;">Documento</h3>
+                    <button onclick="closePDF()" style="background: #e74c3c; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; font-weight: 600;">
+                        ✕ Cerrar
+                    </button>
+                </div>
+                <div class="pdf-viewer">
+                    <iframe id="pdf-frame" src="" allowfullscreen></iframe>
+                </div>
+                <p style="text-align: center; color: #666; font-size: 14px; margin-top: 15px;">
+                    💡 Si el documento no se visualiza correctamente, haz clic en "Descargar" para verlo en tu dispositivo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Noticias -->
+    <section id="noticias" class="section fade-in">
+        <h2 class="section-title">Últimas Noticias</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image">📰</div>
+                <div class="news-content">
+                    <div class="news-date">10 de Octubre, 2025</div>
+                    <h3>Inauguración del Nuevo Laboratorio</h3>
+                    <p>Nuestra institución inaugura modernas instalaciones para las clases de ciencias naturales...</p>
+                    <a href="#" class="read-more">Leer más →</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">🏅</div>
+                <div class="news-content">
+                    <div class="news-date">5 de Octubre, 2025</div>
+                    <h3>Logros en Competencias Deportivas</h3>
+                    <p>Estudiantes obtienen primeros lugares en campeonatos intercolegiales...</p>
+                    <a href="#" class="read-more">Leer más →</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">🎓</div>
+                <div class="news-content">
+                    <div class="news-date">1 de Octubre, 2025</div>
+                    <h3>Ceremonia de Grados 2025</h3>
+                    <p>Exitosa ceremonia de graduación con más de 100 bachilleres preparados para el futuro...</p>
+                    <a href="#" class="read-more">Leer más →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="section fade-in" style="background: #f5f5f5;">
+        <h2 class="section-title">Galería</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">🏫</div>
+            <div class="gallery-item">📚</div>
+            <div class="gallery-item">⚽</div>
+            <div class="gallery-item">🎨</div>
+            <div class="gallery-item">💻</div>
+            <div class="gallery-item">🔬</div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="section fade-in">
+        <h2 class="section-title">Contáctanos</h2>
+        <div style="max-width: 600px; margin: 0 auto;">
+            <form style="display: flex; flex-direction: column; gap: 20px;">
+                <input type="text" placeholder="Nombre completo" style="padding: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px;">
+                <input type="email" placeholder="Correo electrónico" style="padding: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px;">
+                <input type="tel" placeholder="Teléfono" style="padding: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px;">
+                <textarea placeholder="Mensaje" rows="5" style="padding: 15px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; resize: vertical;"></textarea>
+                <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>IE Luis Enrique Figueroa Rey</h3>
+                <p>Institución Educativa comprometida con la excelencia académica y la formación integral.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📘</a>
+                    <a href="#" class="social-icon">📸</a>
+                    <a href="#" class="social-icon">🐦</a>
+                    <a href="#" class="social-icon">📺</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#noticias">Noticias</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📧 secretaria@colefirpiedecuesta.edu.co</p>
+              
+                <p>📱 WhatsApp: 320 309 1492</p>
+                <p>📍 Calle 17 #2w-97 Sector Barro Blanco</p>
+                <p>Piedecuesta, Santander, Colombia</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horario de Atención</h3>
+                <p>Lunes a Viernes</p>
+                <p>7:00 AM - 6:00 PM</p>
+                <p><br>Secretaría</p>
+                <p>8:00 AM - 4:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 IE Luis Enrique Figueroa Rey. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Visor de PDF
+        function viewPDF(documentType) {
+            const pdfViewer = document.getElementById('pdf-viewer-section');
+            const pdfFrame = document.getElementById('pdf-frame');
+            const pdfTitle = document.getElementById('pdf-title');
+            
+            // URLs de ejemplo - Reemplaza estas URLs con las rutas reales de tus archivos PDF
+            const pdfUrls = {
+                'manual-convivencia': 'https://drive.google.com/file/d/1b-9ti9nouxm20kOMuJqN5qlZBij-E1qT/preview',
+                'pei': 'documentos/pei-2025.pdf',
+                'calendario': 'documentos/calendario-academico-2025.pdf',
+                'sie': 'documentos/sie-2025.pdf'
+            };
+
+            const pdfTitles = {
+                'manual-convivencia': '📋 Manual de Convivencia 2025',
+                'pei': '📚 Proyecto Educativo Institucional (PEI)',
+                'calendario': '📅 Calendario Académico 2025',
+                'sie': '📝 Sistema Institucional de Evaluación (SIE)'
+            };
+
+            // Actualizar título
+            pdfTitle.textContent = pdfTitles[documentType];
+
+            // Cargar PDF en iframe
+            pdfFrame.src = pdfUrls[documentType];
+
+            // Mostrar visor
+            pdfViewer.style.display = 'block';
+
+            // Scroll suave al visor
+            pdfViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function closePDF() {
+            const pdfViewer = document.getElementById('pdf-viewer-section');
+            const pdfFrame = document.getElementById('pdf-frame');
+            
+            pdfViewer.style.display = 'none';
+            pdfFrame.src = '';
+        }
+
+        // Animación al scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
